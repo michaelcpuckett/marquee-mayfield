@@ -1,0 +1,109 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin-top: 0;
+}
+
+img {
+	width: 100%;
+}
+
+@mixin mm-clearfix {
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
+
+$grid-width: 960px;
+$gutter: 10px;
+$columns: 5;
+
+@mixin mm-col($i) {
+	float: left;
+	padding-right: $gutter;
+	width: $i/$columns*100%;
+}
+
+@mixin mm-break($i) {
+	@media (min-width: $i+px) {
+		@content;
+	}
+}
+
+.container {
+	@include mm-clearfix;
+	margin: 0 auto;
+	max-width: $grid-width;
+}
+
+@include mm-break(700) {
+	.col-1 {
+		@include mm-col(1);
+	}
+	.col-2 {
+		@include mm-col(2);
+	}
+	.col-3 {
+		@include mm-col(3);
+	}
+	.col-4 {
+		@include mm-col(4);
+	}
+	.col-5 {
+		@include mm-col(5);
+	}
+}
+
+* {
+	line-height: .5;
+	padding: 0;
+	margin: 0;
+}
+
+/* Homepage */
+.home-content {
+	@media (min-width: 480px) {
+		display: table;
+		width: 100%;
+	}
+	.row {
+		@media (min-width: 480px) {
+			display: table-row;
+		}
+	}
+	.row div {
+		display: none; // TODO still get an HTTP request?
+		@media (min-width: 480px) {
+			background-position: 50% 50%;
+			background-image: url('http://placekitten.com/g/200/160');
+			height: 160px;
+		}
+	}
+	a {
+		background-color: black;
+		color: white;
+		display: block;
+		text-align: center;
+		vertical-align: middle;
+		width: 100%;
+	}
+	.row div,
+	a {
+		@media (min-width: 480px) {
+			display: table-cell;
+			width: 1/5*100%;
+		}
+	}
+}
