@@ -4,6 +4,45 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "fonts";
+
+$white: #fff;
+
+/* icons */
+
+%icon {
+	font-family: 'icons';
+}
+
+$icon-itunes: '\e001';
+$icon-facebook: '\e002';
+$icon-spotify: '\e003';
+$icon-twitter: '\e004';
+
+.icon-itunes {
+	&:before {
+		@extend %icon;
+		content: $icon-itunes;
+	}
+}
+.icon-facebook {
+	&:before {
+		@extend %icon;
+		content: $icon-facebook;
+	}
+}
+.icon-spotify {
+	&:before {
+		@extend %icon;
+		content: $icon-spotify;
+	}
+}
+.icon-twitter {
+	&:before {
+		@extend %icon;
+		content: $icon-twitter;
+	}
+}
 
 *,
 *:before,
@@ -12,6 +51,11 @@
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
 	margin-top: 0;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	font-family: 'edmondsansbold', sans-serif;
 }
 
 img {
@@ -26,7 +70,18 @@ img {
 	}
 }
 
+@mixin mm-bw {
+	filter: url(../svg/filters.svg#grayscale); /* Firefox 3.5+ */
+	filter: gray; /* IE6-9 */
+	-webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+}
+@mixin mm-no-bw {
+	filter: none;
+	-webkit-filter: none;
+}
+
 $grid-width: 960px;
+$width-wide: 520px;
 $gutter: 10px;
 $columns: 5;
 
@@ -72,38 +127,120 @@ $columns: 5;
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+	&:hover,
+	&:active {
+		color: inherit;
+	}
+}
+
+@mixin overlay {
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* Global Header */
+header {
+	background-position: 50% 50%;
+	background-image: url('../images/header.jpg');
+	background-size: cover;
+	border-bottom: 3px solid $white;
+	display: table;
+	height: 300px;
+	width: 100%;
+	position: relative;
+	h1 {
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		width: 100%;
+		img {
+			-webkit-transition: all .1s;
+			width: 70%;
+			@media (min-width: $width-wide) {
+				width: 45%;
+				&:hover {
+					width: 55%;
+				}
+			}
+		}
+	}
+	ul {
+		width: 100%;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		li {
+			display: inline;
+			a {
+				color: $white;
+			}
+		}
+	}
+}
+
+
 /* Homepage */
+	/* COULD REFACTOR */
 .home-content {
-	@media (min-width: 480px) {
+	@media (min-width: $width-wide) {
 		display: table;
 		width: 100%;
 	}
 	.row {
-		@media (min-width: 480px) {
+		@media (min-width: $width-wide) {
 			display: table-row;
 		}
-	}
-	.row div {
-		display: none; // TODO still get an HTTP request?
-		@media (min-width: 480px) {
-			background-position: 50% 50%;
-			background-image: url('http://placekitten.com/g/200/160');
-			height: 160px;
+		div {
+			@include mm-bw;
+			-webkit-transition: all .2s;
+			@media (min-width: $width-wide) {
+				background-position: 50% 50%;
+				background-size: cover;
+				background-image: url('http://placekitten.com/200/160');
+				border: 3px solid $white;
+			}
+			&:hover {
+				@include mm-no-bw;
+			}
+			&:first-child {
+				border-left: none;
+			}
+			&:last-child {
+				border-right: none;
+			}
+		}
+		div,
+		a {
+			position: relative;
+			z-index: 3;
+			@media (min-width: $width-wide) {
+				display: table-cell;
+				height: 160px;
+				width: 1/5*100%;
+			}
 		}
 	}
 	a {
-		background-color: black;
+		background: black;
 		color: white;
 		display: block;
+		letter-spacing: 10px;
+		font-size: 40px;
+		margin: 0 0 5px;
+		padding: 10px 0;
 		text-align: center;
+		text-transform: uppercase;
 		vertical-align: middle;
 		width: 100%;
-	}
-	.row div,
-	a {
-		@media (min-width: 480px) {
-			display: table-cell;
-			width: 1/5*100%;
+		@media (min-width: $width-wide) {
+			background: none;
+			font-size: 14px;
 		}
 	}
 }

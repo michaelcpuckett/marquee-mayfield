@@ -67,7 +67,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 10, ../scss/style.scss */
+@font-face {
+  font-family: 'edmondsansbold';
+  src: url("../fonts/edmondsans/edmondsans-bold-webfont.eot");
+  src: url("../fonts/edmondsans/edmondsans-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/edmondsans/edmondsans-bold-webfont.woff") format("woff"), url("../fonts/edmondsans/edmondsans-bold-webfont.ttf") format("truetype"), url("../fonts/edmondsans/edmondsans-bold-webfont.svg#edmondsansbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'icons';
+  src: url("../fonts/icons/icons.eot");
+  src: url("../fonts/icons/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons/icons.woff") format("woff"), url("../fonts/icons/icons.ttf") format("truetype"), url("../fonts/icons/icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* icons */
+/* line 13, ../scss/style.scss */
+.icon-itunes:before, .icon-facebook:before, .icon-spotify:before, .icon-twitter:before {
+  font-family: 'icons';
+}
+
+/* line 23, ../scss/style.scss */
+.icon-itunes:before {
+  content: "\e001";
+}
+
+/* line 29, ../scss/style.scss */
+.icon-facebook:before {
+  content: "\e002";
+}
+
+/* line 35, ../scss/style.scss */
+.icon-spotify:before {
+  content: "\e003";
+}
+
+/* line 41, ../scss/style.scss */
+.icon-twitter:before {
+  content: "\e004";
+}
+
+/* line 49, ../scss/style.scss */
 *,
 *:before,
 *:after {
@@ -77,17 +119,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-top: 0;
 }
 
-/* line 17, ../scss/style.scss */
+/* line 56, ../scss/style.scss */
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: "edmondsansbold", sans-serif;
+}
+
+/* line 61, ../scss/style.scss */
 img {
   width: 100%;
 }
 
-/* line 45, ../scss/style.scss */
+/* line 100, ../scss/style.scss */
 .container {
   margin: 0 auto;
   max-width: 960px;
 }
-/* line 22, ../scss/style.scss */
+/* line 66, ../scss/style.scss */
 .container:after {
   clear: both;
   content: '';
@@ -95,88 +143,187 @@ img {
 }
 
 @media (min-width: 700px) {
-  /* line 52, ../scss/style.scss */
+  /* line 107, ../scss/style.scss */
   .col-1 {
     float: left;
     padding-right: 10px;
     width: 20%;
   }
 
-  /* line 55, ../scss/style.scss */
+  /* line 110, ../scss/style.scss */
   .col-2 {
     float: left;
     padding-right: 10px;
     width: 40%;
   }
 
-  /* line 58, ../scss/style.scss */
+  /* line 113, ../scss/style.scss */
   .col-3 {
     float: left;
     padding-right: 10px;
     width: 60%;
   }
 
-  /* line 61, ../scss/style.scss */
+  /* line 116, ../scss/style.scss */
   .col-4 {
     float: left;
     padding-right: 10px;
     width: 80%;
   }
 
-  /* line 64, ../scss/style.scss */
+  /* line 119, ../scss/style.scss */
   .col-5 {
     float: left;
     padding-right: 10px;
     width: 100%;
   }
 }
-/* line 69, ../scss/style.scss */
+/* line 124, ../scss/style.scss */
 * {
   line-height: .5;
   padding: 0;
   margin: 0;
 }
 
+/* line 130, ../scss/style.scss */
+a {
+  text-decoration: none;
+}
+/* line 133, ../scss/style.scss */
+a:hover, a:active {
+  color: inherit;
+}
+
+/* Global Header */
+/* line 148, ../scss/style.scss */
+header {
+  background-position: 50% 50%;
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  border-bottom: 3px solid white;
+  display: table;
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+/* line 157, ../scss/style.scss */
+header h1 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+/* line 162, ../scss/style.scss */
+header h1 img {
+  -webkit-transition: all 0.1s;
+  width: 70%;
+}
+@media (min-width: 520px) {
+  /* line 162, ../scss/style.scss */
+  header h1 img {
+    width: 45%;
+  }
+  /* line 167, ../scss/style.scss */
+  header h1 img:hover {
+    width: 55%;
+  }
+}
+/* line 173, ../scss/style.scss */
+header ul {
+  width: 100%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+/* line 178, ../scss/style.scss */
+header ul li {
+  display: inline;
+}
+/* line 180, ../scss/style.scss */
+header ul li a {
+  color: white;
+}
+
 /* Homepage */
-@media (min-width: 480px) {
-  /* line 76, ../scss/style.scss */
+/* COULD REFACTOR */
+@media (min-width: 520px) {
+  /* line 190, ../scss/style.scss */
   .home-content {
     display: table;
     width: 100%;
   }
 }
-@media (min-width: 480px) {
-  /* line 81, ../scss/style.scss */
+@media (min-width: 520px) {
+  /* line 195, ../scss/style.scss */
   .home-content .row {
     display: table-row;
   }
 }
-/* line 86, ../scss/style.scss */
+/* line 199, ../scss/style.scss */
 .home-content .row div {
-  display: none;
+  filter: url(../svg/filters.svg#grayscale);
+  /* Firefox 3.5+ */
+  filter: gray;
+  /* IE6-9 */
+  -webkit-filter: grayscale(1);
+  /* Google Chrome & Safari 6+ */
+  -webkit-transition: all 0.2s;
 }
-@media (min-width: 480px) {
-  /* line 86, ../scss/style.scss */
+@media (min-width: 520px) {
+  /* line 199, ../scss/style.scss */
   .home-content .row div {
     background-position: 50% 50%;
-    background-image: url("http://placekitten.com/g/200/160");
-    height: 160px;
+    background-size: cover;
+    background-image: url("http://placekitten.com/200/160");
+    border: 3px solid white;
   }
 }
-/* line 94, ../scss/style.scss */
+/* line 208, ../scss/style.scss */
+.home-content .row div:hover {
+  filter: none;
+  -webkit-filter: none;
+}
+/* line 211, ../scss/style.scss */
+.home-content .row div:first-child {
+  border-left: none;
+}
+/* line 214, ../scss/style.scss */
+.home-content .row div:last-child {
+  border-right: none;
+}
+/* line 219, ../scss/style.scss */
+.home-content .row div,
+.home-content .row a {
+  position: relative;
+  z-index: 3;
+}
+@media (min-width: 520px) {
+  /* line 219, ../scss/style.scss */
+  .home-content .row div,
+  .home-content .row a {
+    display: table-cell;
+    height: 160px;
+    width: 20%;
+  }
+}
+/* line 229, ../scss/style.scss */
 .home-content a {
-  background-color: black;
+  background: black;
   color: white;
   display: block;
+  letter-spacing: 10px;
+  font-size: 40px;
+  margin: 0 0 5px;
+  padding: 10px 0;
   text-align: center;
+  text-transform: uppercase;
   vertical-align: middle;
   width: 100%;
 }
-@media (min-width: 480px) {
-  /* line 103, ../scss/style.scss */
-  .home-content .row div,
+@media (min-width: 520px) {
+  /* line 229, ../scss/style.scss */
   .home-content a {
-    display: table-cell;
-    width: 20%;
+    background: none;
+    font-size: 14px;
   }
 }

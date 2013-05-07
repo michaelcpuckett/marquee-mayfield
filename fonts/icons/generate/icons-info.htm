@@ -1,0 +1,91 @@
+<!doctype html>
+			<html>
+			<head>
+			<title>SVG Font</title>
+			<style>
+				@font-face {
+					font-family: "SVG Font";
+					src: url("icons.svg") format("svg");
+					font-weight: normal;
+					font-style: normal;
+				}
+				body {
+					font-family: sans-serif;
+					color: #444;
+					line-height: 1.5;
+					font-size: 16px;
+					padding: 20px;
+				}
+				* {
+					-moz-box-sizing: border-box;
+					-webkit-box-sizing: border-box;
+					box-sizing: border-box;
+					margin: 0;
+					paddin: 0;
+				}
+				.glyph{
+					display: inline-block;
+					width: 120px;
+					margin: 10px;
+					text-align: center;
+					vertical-align: top;
+					background: #eee;
+					border-radius: 10px;
+					box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+				}
+				.glyph-icon{
+					padding: 10px;
+					display: block;
+					font-family: "SVG Font";
+					font-size: 64px;
+					line-height: 1;
+				}
+				.glyph-icon:before{
+					content: attr(data-icon);
+				}
+				.class-name{
+					font-size: 12px;
+				}
+				.glyph > input{
+					display: block;
+					width: 100px;
+					margin: 5px auto;
+					text-align: center;
+					font-size: 12px;
+					cursor: text;
+				}
+				.glyph > input.icon-input{
+					font-family: "SVG Font";
+					font-size: 16px;
+					margin-bottom: 10px;
+				}
+			</style>
+			</head>
+			<body>
+			<section id="glyphs"><div class="glyph">
+				<div class="glyph-icon" data-icon="&#xe001;"></div>
+				<div class="class-name">icon-apple</div>
+				<input type="text" readonly="readonly" value="&amp;#xe001;" />
+				<input type="text" readonly="readonly" value="\e001" />
+				<input type="text" readonly="readonly" value="&#xe001;" class="icon-input" />
+			</div><div class="glyph">
+				<div class="glyph-icon" data-icon="&#xe002;"></div>
+				<div class="class-name">icon-facebook</div>
+				<input type="text" readonly="readonly" value="&amp;#xe002;" />
+				<input type="text" readonly="readonly" value="\e002" />
+				<input type="text" readonly="readonly" value="&#xe002;" class="icon-input" />
+			</div><div class="glyph">
+				<div class="glyph-icon" data-icon="&#xe003;"></div>
+				<div class="class-name">icon-spotify</div>
+				<input type="text" readonly="readonly" value="&amp;#xe003;" />
+				<input type="text" readonly="readonly" value="\e003" />
+				<input type="text" readonly="readonly" value="&#xe003;" class="icon-input" />
+			</div><div class="glyph">
+				<div class="glyph-icon" data-icon="&#xe004;"></div>
+				<div class="class-name">icon-twitter</div>
+				<input type="text" readonly="readonly" value="&amp;#xe004;" />
+				<input type="text" readonly="readonly" value="\e004" />
+				<input type="text" readonly="readonly" value="&#xe004;" class="icon-input" />
+			</div></section>
+			</body>
+		</html>
