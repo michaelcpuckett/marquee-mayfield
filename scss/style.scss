@@ -160,12 +160,12 @@ header {
 		vertical-align: middle;
 		width: 100%;
 		img {
-			-webkit-transition: all .1s;
+			-webkit-transition: all .25s ease-out;
 			width: 70%;
 			@media (min-width: $width-wide) {
 				width: 45%;
 				&:hover {
-					width: 55%;
+					width: 50%;
 				}
 			}
 		}
@@ -197,17 +197,17 @@ header {
 			display: table-row;
 		}
 		div {
-			@include mm-bw;
-			-webkit-transition: all .2s;
+			// @include mm-bw;
+			// -webkit-transition: all .2s;
 			@media (min-width: $width-wide) {
 				background-position: 50% 50%;
 				background-size: cover;
-				background-image: url('http://placekitten.com/200/160');
 				border: 3px solid $white;
+				position: relative;
 			}
-			&:hover {
-				@include mm-no-bw;
-			}
+			// &:hover {
+			// 	@include mm-no-bw;
+			// }
 			&:first-child {
 				border-left: none;
 			}
@@ -227,6 +227,7 @@ header {
 		}
 	}
 	a {
+		-webkit-transition: all .1s ease-out;
 		background: black;
 		color: white;
 		display: block;
@@ -239,8 +240,33 @@ header {
 		vertical-align: middle;
 		width: 100%;
 		@media (min-width: $width-wide) {
-			background: none;
+			background: rgba(black, .6);
 			font-size: 14px;
+			&:hover {
+				letter-spacing: 18px;
+			}
 		}
 	}
+}
+
+
+$homepage-photos: 15;
+@while $homepage-photos > 0 {
+	.n-#{$homepage-photos} {
+		background-image: url('../images/homepage/pics-#{$homepage-photos}.jpg');
+	}
+	$homepage-photos: $homepage-photos - 1;
+}
+
+.n-1,
+.n-2,
+.n-3,
+.n-5,
+.n-6,
+.n-7,
+.n-11,
+.n-12,
+.n-13,
+.n-15 {
+	@include mm-bw;
 }
