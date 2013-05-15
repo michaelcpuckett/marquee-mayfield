@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "fonts";
+@import "vendor/magnific-popup";
 
 $white: #fff;
 
@@ -81,7 +82,7 @@ img {
 }
 
 $grid-width: 960px;
-$width-wide: 520px;
+$width-wide: 720px;
 $gutter: 10px;
 $columns: 5;
 
@@ -177,8 +178,36 @@ header {
 		top: 10px;
 		li {
 			display: inline;
-			a {
-				color: $white;
+		}
+	}
+	a {
+		color: $white;
+		&:hover {
+			color: $white;
+		}
+	}
+	.header-menu {
+		background: black;
+		text-align: center;
+		top: auto;
+		left: 0;
+		padding: 5px 0;
+		bottom: 20px;
+		text-transform: uppercase;
+		@media (min-width: $width-wide) {
+			display: inline-block;
+			width: 1/5*100%;
+			padding-left: 20px;
+			bottom: 0;
+			padding-right: 20px;
+		}
+		li {
+			padding: 0 10px;
+			@media (min-width: $width-wide) {
+				display: none;
+				&.home {
+					display: inline;
+				}
 			}
 		}
 	}
@@ -186,11 +215,15 @@ header {
 
 
 /* Homepage */
-	/* COULD REFACTOR */
-.home-content {
+.nav-content {
 	@media (min-width: $width-wide) {
 		display: table;
-		width: 100%;
+		float: left;
+		// padding-right: $gutter;
+		// width: 1/5*100%;
+		// &.homepage-nav {
+			width: 100%;
+		// }
 	}
 	.row {
 		@media (min-width: $width-wide) {
@@ -199,6 +232,7 @@ header {
 		div {
 			// @include mm-bw;
 			// -webkit-transition: all .2s;
+			position: relative;
 			@media (min-width: $width-wide) {
 				background-position: 50% 50%;
 				background-size: cover;
@@ -239,12 +273,28 @@ header {
 		text-transform: uppercase;
 		vertical-align: middle;
 		width: 100%;
+		&:hover {
+			color: white;
+		}
+		&.active {
+			background: white;
+			color: black;
+			&:hover {
+				color: black;
+			}
+		}
 		@media (min-width: $width-wide) {
 			background: rgba(black, .6);
 			font-size: 14px;
 			&:hover {
 				letter-spacing: 18px;
 			}
+			&.active {
+				background: rgba(white, .6);
+			}
+		}
+		&.lightbox {
+			background: none !important;
 		}
 	}
 }
@@ -269,4 +319,42 @@ $homepage-photos: 15;
 .n-13,
 .n-15 {
 	@include mm-bw;
+}
+
+
+/* Gallery */
+.nav-content.popup-gallery {
+	/* nav content overrides */
+	div {
+		display: none;
+		@media (min-width: $width-wide) {
+			display: table-cell;
+		}
+	}
+	.row {
+		display: block;
+		@media (min-width: $width-wide) {
+			display: table-row;
+		}
+	}
+	div.lightbox {
+		display: block;
+		height: 160px;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		@media (min-width: $width-wide) {
+			display: table-cell;
+			width: 1/5*100%;
+		}
+		a {
+			display: block !important;
+			width: 100% !important;
+			position: absolute !important;
+			top: 0;
+			left: 0;
+			height: 100%;
+			background: none;
+		}
+	}
 }
