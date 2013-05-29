@@ -19,6 +19,10 @@ $icon-itunes: '\e001';
 $icon-facebook: '\e002';
 $icon-spotify: '\e003';
 $icon-twitter: '\e004';
+$icon-youtube: '\e005';
+$icon-soundcloud: '\e006';
+$icon-tumblr: '\e007';
+$icon-instagram: '\e008';
 
 .icon-itunes {
 	&:before {
@@ -42,6 +46,30 @@ $icon-twitter: '\e004';
 	&:before {
 		@extend %icon;
 		content: $icon-twitter;
+	}
+}
+.icon-youtube {
+	&:before {
+		@extend %icon;
+		content: $icon-youtube;
+	}
+}
+.icon-soundcloud {
+	&:before {
+		@extend %icon;
+		content: $icon-soundcloud;
+	}
+}
+.icon-tumblr {
+	&:before {
+		@extend %icon;
+		content: $icon-tumblr;
+	}
+}
+.icon-instagram {
+	&:before {
+		@extend %icon;
+		content: $icon-instagram;
 	}
 }
 
@@ -382,6 +410,7 @@ $gallery-photos: 12;
 		display: table;
 	}
 }
+.music-player-wrapper,
 .video-player-wrapper {
 	height: 500px;
 	width: 100%;

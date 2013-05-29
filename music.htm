@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+	<title>Music - Marquee Mayfield</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body id="page-video">
+	<div class="container">
+		<header>
+			<!-- image gallery -->
+			<h1>
+				<a href="index.htm"><img alt="Marquee Mayfield" src="svg/mm-logo-rev.svg"></a>
+			</h1>
+			<ul class="social-icons">
+				<li><a class="icon-twitter" href="#" target="_blank"></a></li>
+				<li><a class="icon-facebook" href="#" target="_blank"></a></li>
+				<li><a class="icon-spotify" href="#" target="_blank"></a></li>
+				<li><a class="icon-itunes" href="#" target="_blank"></a></li>
+			</ul>
+			<ul class="header-menu">
+				<li class="home"><a href="index.htm">Home</a></li>
+				<li><a href="music.htm">Music</a></li>
+				<li><a href="video.htm">Video</a></li>
+				<li><a href="gallery.htm">Gallery</a></li>
+			</ul>
+		</header>
+		<nav class="nav-content single-column">
+			<div class="row">
+				<div class="n-1"><a class="active" href="music.htm">Music</a></div>
+			</div>
+			<div class="row">
+				<div class="n-7"><a href="video.htm">Video</a></div>
+			</div>
+			<div class="row">
+				<div class="n-11"><a href="gallery.htm">Gallery</a></div>
+			</div>
+		</nav>
+
+		<div class="music-player-wrapper" id="js-music-player-wrapper">
+			Loading Music...
+		</div>
+
+	</div>
+
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+	<script>
+	var MM = MM || {};
+	MM.musicPlayer = (function () {
+		var fnCreateTrackFragment,
+			SC_USER_ID = 12151446,
+			SC_CLIENT_ID = '594368932ec66d3c1d3b65ade45ccdc2',
+			SC_REDIRECT_URI = 'http://www.marqueemayfield.com',
+			$trackTemplate,
+			$wrapperEl = document.getElementById('js-music-player-wrapper');
+
+		// Create an iFrame template without a `src` attribute
+		$trackTemplate = document.createElement('iframe');
+		$trackTemplate.setAttribute('width', '100%');
+  		$trackTemplate.setAttribute('height', '166');
+  		$trackTemplate.setAttribute('scrolling', 'no');
+  		$trackTemplate.setAttribute('frameborder', 'no');
+		
+		// Render an iFrame based on a SoundCloud track ID
+		createTrackFragment = function (id) {
+			var $trackEl = $trackTemplate.cloneNode();
+	  		$trackEl.setAttribute('src', 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + id);
+	  		return $trackEl;
+		};
+
+		// Connect to SoundCloud's API
+		SC.initialize({
+			client_id: SC_CLIENT_ID,
+			redirect_uri: SC_REDIRECT_URI
+		});
+
+		// Use SoundCloud API to get tracks uploaded by Marquee Mayfield
+		SC.get('/users/' + SC_USER_ID + '/tracks.json', function(res) {
+		  	var i,
+	  		musicPlayerFragment = document.createDocumentFragment();
+
+	  		// Create an iFrame for each track ID returned from the SoundCloud API
+		  	for (i = 0; i < res.length; i += 1) {
+		  		musicPlayerFragment.appendChild(createTrackFragment(res[i].id));
+		  	}
+
+		  	// Render the list of SoundCloud Player iFrames
+		  	$wrapperEl.innerHTML = '';
+		  	$wrapperEl.appendChild(musicPlayerFragment);
+		});
+	}());
+	</script>
+</body>
+</html>
