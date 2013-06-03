@@ -61,7 +61,7 @@
   		$trackTemplate.setAttribute('frameborder', 'no');
 		
 		// Render an iFrame based on a SoundCloud track ID
-		createTrackFragment = function (id) {
+		createTrackFragment = function (id, callback) {
 			var $trackEl = $trackTemplate.cloneNode();
 	  		$trackEl.setAttribute('src', 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + id);
 	  		return $trackEl;
@@ -76,14 +76,13 @@
 		// Use SoundCloud API to get tracks uploaded by Marquee Mayfield
 		SC.get('/users/' + SC_USER_ID + '/tracks.json', function(res) {
 		  	var i,
-	  		musicPlayerFragment = document.createDocumentFragment();
+		  		musicPlayerFragment = document.createDocumentFragment();
 
 	  		// Create an iFrame for each track ID returned from the SoundCloud API
 		  	for (i = 0; i < res.length; i += 1) {
 		  		musicPlayerFragment.appendChild(createTrackFragment(res[i].id));
 		  	}
 
-		  	// Render the list of SoundCloud Player iFrames
 		  	$wrapperEl.innerHTML = '';
 		  	$wrapperEl.appendChild(musicPlayerFragment);
 		});

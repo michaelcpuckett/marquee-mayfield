@@ -394,11 +394,13 @@ $gallery-photos: 12;
 		a {
 			display: block !important;
 			width: 100% !important;
-			position: absolute !important;
 			top: 0;
 			left: 0;
 			height: 100%;
 			background: none;
+			@media (min-width: $width-wide) {
+				position: absolute !important;
+			}
 		}
 	}
 }
@@ -418,6 +420,28 @@ $gallery-photos: 12;
 		float: left;
 		padding: 5px;
 		width: 4/5*100%;
+	}
+}
+
+.gallery-wrapper {
+	float: left;
+	padding-left: 5px;
+	width: 100%;
+	@media (min-width: $width-wide) {
+		overflow: scroll;
+		width: 80%;
+	}
+	.nav-content {
+		$galleryCols: 7;
+		height: 500px;
+		@media (min-width: $width-wide) {
+			width: $galleryCols*25%;
+		}
+		div.lightbox {
+			@media (min-width: $width-wide) {
+				width: 1/$galleryCols*100%;
+			}
+		}
 	}
 }
 
