@@ -423,6 +423,27 @@ $gallery-photos: 12;
 	}
 }
 
+.contact-wrapper {
+	line-height: 4;
+	text-align: center;
+	@media (min-width: $width-wide) {
+		float: left;
+		padding: 5px;
+		width: 4/5*100%;
+	}
+}
+
+.video-gallery-nav-content {
+	margin-left: 5px;
+}
+
+.video-player-wrapper {
+	@media (min-width: $width-wide) {
+		width: 59%;
+		padding-right: 0;
+	}
+}
+
 .gallery-wrapper {
 	float: left;
 	padding-left: 5px;

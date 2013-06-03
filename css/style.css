@@ -1187,36 +1187,63 @@ header .header-menu li {
 }
 
 /* line 426, ../scss/style.scss */
+.contact-wrapper {
+  line-height: 4;
+  text-align: center;
+}
+@media (min-width: 720px) {
+  /* line 426, ../scss/style.scss */
+  .contact-wrapper {
+    float: left;
+    padding: 5px;
+    width: 80%;
+  }
+}
+
+/* line 436, ../scss/style.scss */
+.video-gallery-nav-content {
+  margin-left: 5px;
+}
+
+@media (min-width: 720px) {
+  /* line 440, ../scss/style.scss */
+  .video-player-wrapper, .about-content {
+    width: 59%;
+    padding-right: 0;
+  }
+}
+
+/* line 447, ../scss/style.scss */
 .gallery-wrapper {
   float: left;
   padding-left: 5px;
   width: 100%;
 }
 @media (min-width: 720px) {
-  /* line 426, ../scss/style.scss */
+  /* line 447, ../scss/style.scss */
   .gallery-wrapper {
     overflow: scroll;
     width: 80%;
   }
 }
-/* line 434, ../scss/style.scss */
+/* line 455, ../scss/style.scss */
 .gallery-wrapper .nav-content {
   height: 500px;
 }
 @media (min-width: 720px) {
-  /* line 434, ../scss/style.scss */
+  /* line 455, ../scss/style.scss */
   .gallery-wrapper .nav-content {
     width: 175%;
   }
 }
 @media (min-width: 720px) {
-  /* line 440, ../scss/style.scss */
+  /* line 461, ../scss/style.scss */
   .gallery-wrapper .nav-content div.lightbox {
     width: 14.28571%;
   }
 }
 
-/* line 448, ../scss/style.scss */
+/* line 469, ../scss/style.scss */
 .video-player, .about-note {
   background: black;
   height: 100%;
