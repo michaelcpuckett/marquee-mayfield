@@ -282,45 +282,6 @@
 			        </div>
 			    </div>
 
-				<script>
-					var docFragment,
-						rowDivTemplate,
-						rowDiv,
-						lightBoxDivTemplate,
-						lightBoxDiv,
-						anchorDivTemplate,
-						anchorDiv,
-						isRow,
-						currentRowDiv;
-					docFragment = document.createElement('div');
-					rowDivTemplate = document.createElement('div');
-					rowDivTemplate.setAttribute('class', 'row');
-					lightBoxDivTemplate = document.createElement('div');
-					lightBoxDivTemplate.setAttribute('class', 'lightbox');
-					anchorDivTemplate = document.createElement('a');
-					anchorDivTemplate.innerHTML = '&nbsp';
-					for (var i = 1; i < 69; i += 1) {
-						isRow = false;
-						if ((i-1) % 4 === 0) {
-							isRow = true;
-						}
-						if (isRow) {
-							if (currentRowDiv) {
-								docFragment.appendChild(currentRowDiv);
-							}
-							currentRowDiv = rowDivTemplate.cloneNode();
-						}
-						lightBoxDiv = lightBoxDivTemplate.cloneNode();
-						anchorDiv = anchorDivTemplate.cloneNode();
-						lightBoxDiv.setAttribute('style', 'background-image: url("images/gallery/sm/'+i+'.jpg")');
-
-						anchorDiv.setAttribute('href', 'images/gallery/lg/'+i+'.jpg');
-						lightBoxDiv.appendChild(anchorDiv);
-						currentRowDiv.appendChild(lightBoxDiv);
-					}
-					document.body.appendChild(docFragment);
-				</script>
-
 			</div>
 		</nav>
 
