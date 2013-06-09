@@ -200,10 +200,14 @@ header {
 		}
 	}
 	ul {
-		width: 100%;
-		position: absolute;
+		display: none;
 		left: 10px;
+		position: absolute;
 		top: 10px;
+		width: 100%;
+		@media (min-width: $width-wide) {
+			display: block;
+		}
 		li {
 			display: inline;
 		}
@@ -300,17 +304,18 @@ header {
 		background: black;
 		color: white;
 		display: block;
-		letter-spacing: 10px;
-		font-size: 40px;
+		letter-spacing: 12px;
+		font-size: 30px;
 		margin: 0 0 5px;
-		padding: 10px 0;
+		padding: 5px 0;
 		text-align: center;
 		text-transform: uppercase;
 		vertical-align: middle;
 		width: 100%;
-		&:hover {
-			color: white;
-		}
+		// &:hover {
+		// 	color: white;
+		// }
+		&:hover,
 		&.active {
 			background: white;
 			color: black;
@@ -322,8 +327,9 @@ header {
 			background: rgba(black, .6);
 			font-size: 14px;
 			&:hover {
-				letter-spacing: 18px;
+				letter-spacing: 6px;
 			}
+			&:hover,
 			&.active {
 				background: rgba(white, .6);
 			}
@@ -331,6 +337,12 @@ header {
 		&.lightbox {
 			background: none !important;
 		}
+	}
+}
+
+.social-icons-mobile-only {
+	@media (min-width: $width-wide) {
+		display: none;
 	}
 }
 
@@ -364,6 +376,11 @@ $gallery-photos: 12;
 	@include mm-bw;
 }
 
+// .n-1  (microphone)
+// .n-2  (record player)
+// .n-7  (marquee)
+// .n-11 (camera)
+// .n-12 (typewriter)
 
 /* Gallery */
 .nav-content.popup-gallery {
@@ -381,7 +398,7 @@ $gallery-photos: 12;
 		}
 	}
 	div.lightbox {
-		@include mm-no-bw;
+		// @include mm-no-bw;
 		display: block;
 		height: 160px;
 		width: 100%;
@@ -450,10 +467,14 @@ $gallery-photos: 12;
 	width: 100%;
 	@media (min-width: $width-wide) {
 		overflow: scroll;
+		height: 495px;
 		width: 80%;
 	}
+	.row {
+		height: 166px;
+	}
 	.nav-content {
-		$galleryCols: 7;
+		$galleryCols: 4;
 		height: 500px;
 		@media (min-width: $width-wide) {
 			width: $galleryCols*25%;
