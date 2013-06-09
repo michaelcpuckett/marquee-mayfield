@@ -200,14 +200,10 @@ header {
 		}
 	}
 	ul {
-		display: none;
 		left: 10px;
 		position: absolute;
 		top: 10px;
 		width: 100%;
-		@media (min-width: $width-wide) {
-			display: block;
-		}
 		li {
 			display: inline;
 		}
@@ -240,6 +236,13 @@ header {
 				}
 			}
 		}
+	}
+}
+
+.social-icons {
+	display: none;
+	@media (min-width: $width-wide) {
+		display: block;
 	}
 }
 
@@ -404,9 +407,11 @@ $gallery-photos: 12;
 		width: 100%;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
+		float: left;
 		@media (min-width: $width-wide) {
 			display: table-cell;
 			width: 1/5*100%;
+			float: none;
 		}
 		a {
 			display: block !important;
