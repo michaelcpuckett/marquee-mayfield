@@ -23,6 +23,7 @@ $icon-youtube: '\e005';
 $icon-soundcloud: '\e006';
 $icon-tumblr: '\e007';
 $icon-instagram: '\e008';
+$icon-noisetrade: '\e009';
 
 .icon-itunes {
 	&:before {
@@ -70,6 +71,13 @@ $icon-instagram: '\e008';
 	&:before {
 		@extend %icon;
 		content: $icon-instagram;
+	}
+}
+
+.icon-noisetrade {
+	&:before {
+		@extend %icon;
+		content: $icon-noisetrade;
 	}
 }
 
@@ -434,8 +442,7 @@ $gallery-photos: 12;
 		display: table;
 	}
 }
-.music-player-wrapper,
-.video-player-wrapper {
+.content-wrapper {
 	height: 500px;
 	width: 100%;
 	@media (min-width: $width-wide) {
@@ -502,4 +509,25 @@ $gallery-photos: 12;
 }
 .about-note {
 	@extend .video-player;
+}
+
+.about-content {
+	img {
+		display: none;
+		@media (min-width: $width-wide) {
+			display: inline;
+		}
+	}
+	.simple-text {
+		background: #fff;
+		padding: 10px;
+
+		@media (min-width: $width-wide) {
+			display: none;
+		}
+
+		p {
+			margin-bottom: 10px;
+		}
+	}
 }
