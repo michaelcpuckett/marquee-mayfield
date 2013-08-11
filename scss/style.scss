@@ -358,6 +358,16 @@ header {
 	@media (min-width: $width-wide) {
 		display: none;
 	}
+	li {
+		background: black;
+		margin-bottom: 5px;
+		text-align: center;
+	}
+	a {
+		display: inline-block;
+		padding-left: 10px;
+		width: auto;
+	}
 }
 
 
