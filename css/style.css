@@ -1269,28 +1269,37 @@ header .header-menu li {
   height: 100%;
 }
 
-/* line 515, ../scss/style.scss */
+/* about */
+/* line 516, ../scss/style.scss */
 .about-content img {
   display: none;
 }
 @media (min-width: 720px) {
-  /* line 515, ../scss/style.scss */
+  /* line 516, ../scss/style.scss */
   .about-content img {
     display: inline;
   }
 }
-/* line 521, ../scss/style.scss */
+/* line 522, ../scss/style.scss */
 .about-content .simple-text {
   background: #fff;
   padding: 10px;
 }
 @media (min-width: 720px) {
-  /* line 521, ../scss/style.scss */
+  /* line 522, ../scss/style.scss */
   .about-content .simple-text {
     display: none;
   }
 }
-/* line 529, ../scss/style.scss */
+/* line 530, ../scss/style.scss */
 .about-content .simple-text p {
   margin-bottom: 10px;
+}
+
+/* music */
+/* line 538, ../scss/style.scss */
+.music-player-wrapper > iframe {
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
 }

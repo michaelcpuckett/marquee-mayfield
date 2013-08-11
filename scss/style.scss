@@ -504,6 +504,7 @@ $gallery-photos: 12;
 	height: 100%;
 }
 
+/* about */
 .about-content {
 	@extend .video-player-wrapper;
 }
@@ -529,5 +530,14 @@ $gallery-photos: 12;
 		p {
 			margin-bottom: 10px;
 		}
+	}
+}
+
+/* music */
+.music-player-wrapper {
+	> iframe {
+		float: left;
+		margin-right: 10px;
+		margin-top: 10px;
 	}
 }
