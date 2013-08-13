@@ -6,6 +6,7 @@
 @import "compass/reset";
 @import "fonts";
 @import "vendor/magnific-popup";
+@import "vendor/mailchimp-signup";
 
 $white: #fff;
 
@@ -308,8 +309,12 @@ header {
 			z-index: 3;
 			@media (min-width: $width-wide) {
 				display: table-cell;
-				height: 160px;
 				width: 1/5*100%;
+			}
+		}
+		a {
+			@media (min-width: $width-wide) {
+				height: 160px;
 			}
 		}
 	}
@@ -553,4 +558,12 @@ $gallery-photos: 12;
 		margin-right: 10px;
 		margin-top: 10px;
 	}
+}
+
+/* inline gallery */
+
+#email-list-signup-popup {
+	margin-left: auto;
+	margin-right: auto;
+	width: 320px;
 }
